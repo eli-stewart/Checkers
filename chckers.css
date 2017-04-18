@@ -1,9 +1,5 @@
 .space {
-<<<<<<< HEAD
     float:left;
-=======
-    float: left;
->>>>>>> orgin/master
     position: relative;
     width: 12.5%;
     padding-bottom: 12.5%;
@@ -15,21 +11,7 @@
     /* you change this to "contain" if you don't want the images to be cropped */
 }
 
-<<<<<<< HEAD
 .img_w{background-image:url('w.png');}
 .img_b{background-image:url('b.png');}
 
 .full{background-image:url('FullRed.png');}
-=======
-.img_w {
-    background-image: url(w.png);
-}
-
-.img_b {
-    background-image: url(b.png);
-}
-
-.full {
-    background-image: url(FullRed.jpg);
-}
->>>>>>> orgin/master
