@@ -142,6 +142,7 @@ var pceArrayRed = [pceR1, pceR2, pceR3, pceR4, pceR5, pceR6, pceR7, pceR8, pceR9
 var pceArrayWhite = [pceW1, pceW2, pceW3, pceW4, pceW5, pceW6, pceW7, pceW8, pceW9, pceW10, pceW11, pceW12];
 
 function move(spaceId) {
+	// undeleting and deleting
     for (var i = 0; i < pceArrayRed.length; i++) {
         if (arraysEqual(spaceId, deleted) && document.getElementById(spaceId).className == "space img_b" && document.getElementById(selected).className == "space img_b") {
             console.log(deleted);
@@ -150,25 +151,49 @@ function move(spaceId) {
             deleted = 0;
             deletedColor = "";
         }
+
+
     }
+
+
+
+
+
+	/*	if (pceArrayRed[i].alive == false){
+			pcelocationRed = pceArrayRed[i].location
+			document.getElementById(pcelocationRed).className = "space img_b"
+		}
+	}
+
+
+	if (pceArrayWhite[i].alive == false){
+			pcelocationWhite = pceArrayWhite[i].location
+			document.getElementById(pcelocationWhite).className = "space img_b"
+		}
+		*/
+
     if (document.getElementById(spaceId).className == "space fullRed" || document.getElementById(spaceId).className == "space fullWhite" || document.getElementById(spaceId).className == "space whiteKing" || document.getElementById(spaceId).className == "space redKing") {
         var spaceColor = document.getElementById(spaceId).className
         if (arraysEqual(spaceId, selected)) {
-            document.getElementById(spaceId).className = "space img_b";
             deletedColor = spaceColor;
             deleted = selected;
             for (var i = 0; i < pceArrayRed.length; i++) {
                 var pceLocation = pceArrayRed[i].location;
-                var pceLife = pceArrayRed[i].alive;
+
                 if (arraysEqual(pceLocation, deleted)) {
-                    deadPeiceLocation = pceLocation
+                    pceLocation
+					pceArrayRed[i].alive = false
+					document.getElementById(pceLocation).className = "space img_b"
 
                 }
             }
-            for (var i = 0; i < pceArrayRed.length; i++) {
-                var pceLocation = pceArrayRed[i].location
+            for (var i = 0; i < pceArrayWhite.length; i++) {
+                var pceLocation = pceArrayWhite[i].location
+
                 if (arraysEqual(pceLocation, deleted)) {
                     deadPeicelocation = pceLocation
+					pceArrayWhite[i].alive = false
+					document.getElementById(pceLocation).className = "space img_b"
                 }
             }
         }
@@ -252,13 +277,13 @@ function move(spaceId) {
         }
     }
     for (var i = 0; i < pceArrayRed.length; i++) {
-        if (pceArrayRed[i].kingstate == true ) {
+        if (pceArrayRed[i].kingstate == true && pceArrayRed[i].alive == true) {
             var pceLocation = pceArrayRed[i].location;
             document.getElementById(pceLocation).className = "space redKing";
         }
     }
     for (var i = 0; i < pceArrayWhite.length; i++) {
-        if (pceArrayWhite[i].kingstate == true) {
+        if (pceArrayWhite[i].kingstate == true && pceArrayWhite[i].alive == true) {
             var pceLocation = pceArrayWhite[i].location
             document.getElementById(pceLocation).className = "space whiteKing";
         }
