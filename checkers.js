@@ -143,7 +143,6 @@ var pceArrayWhite = [pceW1, pceW2, pceW3, pceW4, pceW5, pceW6, pceW7, pceW8, pce
 
 function move(spaceId) {
 	// undeleting and deleting
-    for (var i = 0; i < pceArrayRed.length; i++) {
         if (arraysEqual(spaceId, deleted) && document.getElementById(spaceId).className == "space img_b" && document.getElementById(selected).className == "space img_b") {
             console.log(deleted);
             document.getElementById(spaceId).className = deletedColor;
@@ -153,7 +152,8 @@ function move(spaceId) {
         }
 
 
-    }
+
+
 
 
 
@@ -181,7 +181,6 @@ function move(spaceId) {
                 var pceLocation = pceArrayRed[i].location;
 
                 if (arraysEqual(pceLocation, deleted)) {
-                    pceLocation
 					pceArrayRed[i].alive = false
 					document.getElementById(pceLocation).className = "space img_b"
 
@@ -191,7 +190,6 @@ function move(spaceId) {
                 var pceLocation = pceArrayWhite[i].location
 
                 if (arraysEqual(pceLocation, deleted)) {
-                    deadPeicelocation = pceLocation
 					pceArrayWhite[i].alive = false
 					document.getElementById(pceLocation).className = "space img_b"
                 }
